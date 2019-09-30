@@ -1,4 +1,4 @@
-const Author = require('../models/author');
+const Author = new require('../models/author.js').Author;
 
 module.exports = {
     author_list : function (req, res, next) {
@@ -109,3 +109,14 @@ module.exports = {
 
 // their value is replaced with the mongoose document returned from the database by performing
 // a separate query before returning the results
+
+// Promise   https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises
+
+// Promises are glorified callbacks which simplify the callback hell.
+// They came later out of a necessity to simplify things and make it simpler
+
+//async/await is syntactic sugar for promises. It's the latest iteration, completely optional
+// and fully compatible with Promises.
+
+// callback ->  promise -> async await   for asynchronous operation
+

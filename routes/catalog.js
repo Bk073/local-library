@@ -18,5 +18,16 @@ router.get('/author/list', author_controller.author_list);
 router.get('/author/delete', author_controller.author_delete_get);
 router.post('/author/delete', author_controller.author_delete_post);
 
+/// Genre Routes ///
+
+router.get('/genre', genre_controller.genre_list);
+router.get('/genre/create', genre_controller.genre_get);
+router.post('/genre/create', genre_controller.genre_post);
+router.get('/genre/update', genre_controller.genre_update_get);
+router.post('/genre/update', genre_controller.genre_update_post);
+router.get('/genre/delete', genre_controller.genre_delete_get);
+router.post('/genre/delete', genre_controller.genre_delete_post);
+
+
 
 module.exports = router;

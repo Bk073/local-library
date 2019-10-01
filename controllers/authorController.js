@@ -1,4 +1,4 @@
-const Author = new require('../models/author.js').Author;
+const Author = require('../models/author.js');
 
 module.exports = {
     author_list : function (req, res, next) {

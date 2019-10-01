@@ -1,3 +1,6 @@
 <html>
-<p> helo</p>
+<h3>Genre  List: </h3>
+{{#each genre}}
+    {{name}} <a href="/catalog/genre/delete/{{{_id}}}">Delete</a><br>
+{{/each}}
 </html>

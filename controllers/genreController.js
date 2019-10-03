@@ -22,7 +22,7 @@ module.exports = {
             res.redirect('/catalog/genre/list');   //Redirects can be relative to the root of the host name.
         //    this will redirect to localhost:3000/catalog/genre/list
 
-            //    res.redirect('catalog/genre/list'); this is relative to current url
+            //    res.redirect('catalog/genre/list'`); this is relative to current url
         //    if current stater is localhost:3000/catalog/genre/create this will redirect to :
         //    localhost:3000/catalog/genre/catalog/genre/list
         });
@@ -48,9 +48,24 @@ module.exports = {
         });
     },
     genre_update_get: function (req, res) {
-        res.send('Not implemented');
+        Genre.findById(req.params.id, 'name', function (err, name) {
+            if (err){
+                return err;
+            }else{
+                // console.log(name);
+                res.render('catalog/updateGenre', {genre:name});
+            }
+        });
     },
     genre_update_post: function (req, res) {
-        res.send('Not implemented');
+        console.log('Hello');
+        console.log(req.body);
+        Genre.findOneAndUpdate(req.params.id, {name:req.body.name},  {upsert:true}, function (err) {
+            if(err){
+                return err;
+            }else{
+                res.redirect('/catalog/genre/list');
+            }
+        });
     }
 };
